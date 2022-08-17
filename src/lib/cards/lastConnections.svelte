@@ -6,8 +6,7 @@
 
     lastPowSignall.subscribe(message=> {
         if(message){
-            signalls.push(message)
-            signalls = signalls
+            signalls = [...signalls, message]
         }
     })
 

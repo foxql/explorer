@@ -5,13 +5,7 @@
 	import { get } from 'svelte/store'
 	import StatBox from '$lib/StatBox.svelte';
 	import LastConnections from '$lib/cards/lastConnections.svelte';
-
-	let webNodes, signallNodes, dapps
-
-	webNodeCount.subscribe(v => webNodes = v)
-	signallNodeCount.subscribe(v => signallNodes = v)
-	activeDappsCount.subscribe(v => dapps = v)
-
+	import DappList from '$lib/cards/dappList.svelte';
 </script>
 
 <svelte:head>
@@ -23,7 +17,7 @@
 	<div class = "stats-container">
 		<StatBox
 			text = "Web Nodes"
-			value = {webNodes}
+			value = {$webNodeCount}
 			width = {25}
 		/>
 		<StatBox
@@ -33,12 +27,12 @@
 		/>
 		<StatBox
 			text = "Signalling Nodes"
-			value = {signallNodes}
+			value = {$signallNodeCount}
 			width = {25}
 		/>
 		<StatBox
 			text = "Online Dapps"
-			value = {dapps}
+			value = {$activeDappsCount}
 			width = {25}
 		/>
 	</div>
@@ -48,7 +42,9 @@
 	<div class = "item">
 		<LastConnections />
 	</div>
-	
+	<div class = "item">
+		<DappList />
+	</div>
 </div>	
 
 <style>
@@ -66,12 +62,10 @@
 	}
 
 	.container {
-		display: flex;
-		justify-content: space-between;
 	}
 
 	.container .item {
-		width: 48.3%;
+		width: 50%;
 	}
 
 	@media only screen and (max-width: 800px) {
@@ -79,8 +73,12 @@
             flex-direction: column;
         }
 
+		.container {
+			display: block;
+		}
+
 		.container .item {
-			width: 100%;
+			width: 100% !important;
 		}
 
     }

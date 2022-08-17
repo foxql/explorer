@@ -10,7 +10,7 @@
 </main>
 
 <footer>
-	<p>visit <a href="https://foxql.com">docs.foxql.com</a> to learn foxql</p>
+	<p>visit <a href="https://github.com/foxql/peer">foxql/peer</a> to learn web2 dapp development</p>
 </footer>
 
 <style>
@@ -36,9 +36,12 @@
 		font-weight: bold;
 	}
 
-	@media (min-width: 480px) {
+	@media (max-width: 480px) {
 		footer {
 			padding: 40px 0;
+		}
+		main {
+			padding: 0.5rem 1rem !important;
 		}
 	}
 </style>

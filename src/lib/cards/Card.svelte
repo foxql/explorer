@@ -18,6 +18,8 @@
         background: var(--background-without-opacity);
         border-radius: 4px;
         color: var(--text-color);
+        box-sizing: border-box;
+        margin-bottom: 1rem;
     }
     .card .title {
         font-size: 1rem;
